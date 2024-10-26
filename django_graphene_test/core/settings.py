@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-y(=g+0hcrsns#6i!muk_a2-%mvl_mnu$az!9#y*zmh!(5hd)(e'
+SECRET_KEY = 'django-insecure-hv58sdwmq$#s%u=^@w-ut0%t$9rj5tp8%46=jo)kyv+^!6h75w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,20 +31,21 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",
-    "django.contrib.messages",
-    "django.contrib.staticfiles",
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
     # my apps
-    "django.contrib.staticfiles",
-    "rest_framework",
-    "graphene_django",
-    "api",
+    'rest_framework',
+    'graphene_django',
+    'bank',
 ]
 
-GRAPHENE = {"SCHEMA": "django_graphene_test.schema.schema"}
+GRAPHENE = {
+    'SCHEMA': 'bank.schema.schema'
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
