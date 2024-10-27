@@ -16,12 +16,18 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from graphene_django.views import GraphQLView
 from bank.schema import schema
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework import routers
+from bank.views import UserViewSet, TransactionHistoryViewSet
 
+router = routers.DefaultRouter()
+router.register(r"users", UserViewSet)
+router.register(r"transaction_history", TransactionHistoryViewSet)
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("graphql/", csrf_exempt(GraphQLView.as_view(graphiql=True, schema=schema))),
+    path("api/", include(router.urls)),
 ]
